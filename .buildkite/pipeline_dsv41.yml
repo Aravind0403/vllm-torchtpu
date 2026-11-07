@@ -123,6 +123,7 @@ steps:
         tests/scripts/test_dsv41_decode_accounting.py
         tests/scripts/test_dsv41_serve_recipe.py
         tests/scripts/test_dsv41_multihost_ci.py
+        tests/scripts/test_dsv41_repetition.py
         -q --junitxml=/perf_eval_results/dsv41-benchmark-cpu.xml
     artifact_paths:
       - "perf_eval_results/**/*"
@@ -197,7 +198,7 @@ steps:
         artifact_paths:
           - "perf_eval_results/**/*"
 
-      - label: "DeepSeek-V4.1-Flash: DP16 C768 steady DSpark decode (8 chips, EPLB)"
+      - label: "DeepSeek-V4.1-Flash: DP16 C768 steady DSpark decode + DeepSWE regression (8 chips, EPLB)"
         key: "dsv41_flash_dp16_c768_decode"
         depends_on: "dsv41_decode_kernel_parity"
         # Two hosts, eight devices/four chips each, with push and dynamic EPLB.
